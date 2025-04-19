@@ -1,0 +1,40 @@
+  {
+    "name": "mhzq-com/citymedia-addon",
+    "description": "Nubes ERP System City Media Addon",
+    "type": "library",
+    "keywords": ["php", "config"],
+    "homepage": "https://mhzq.com",
+    "authors": [
+        {
+            "name": "Arnold Dózsa",
+            "role": "Developer, maintainer",
+            "email": "arnold.dozsa@mhzq.com"
+        },
+        {
+            "name": "Bence Farkas",
+            "role": "Developer",
+            "email": "f.bence83@gmail.com"
+        }
+    ],
+
+    "require": {
+        "phpoffice/phpspreadsheet": ">=1.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        },
+        "files": ["src/boot.php"]
+    },
+
+
+    "scripts": {
+        "post-package-install": [
+            "npm install @mhzq-com/mysqlupdater"
+        ],
+        "post-update-cmd": [
+            "nubesdbupdater db/ root"
+        ]
+    }
+}
